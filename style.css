@@ -87,7 +87,6 @@ body {
     position: relative;
     overflow: hidden;
     margin-top: 80px;
-    margin-left: 0%;
 }
 
 .hero::before {
