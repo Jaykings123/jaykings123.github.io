@@ -3,10 +3,10 @@ const revealElements = document.querySelectorAll('.reveal');
 
 const checkReveal = () => {
     const triggerBottom = window.innerHeight * 0.85;
-    
+
     revealElements.forEach(element => {
         const boxTop = element.getBoundingClientRect().top;
-        if(boxTop < triggerBottom) {
+        if (boxTop < triggerBottom) {
             element.classList.add('active');
         }
     });
@@ -49,8 +49,26 @@ cards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+// Scroll to Top Button
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
